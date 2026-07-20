@@ -1,0 +1,29 @@
+generated: '2026-07-18'
+method: searched
+source: https://ridedott.dev/docs/services/gbfs/introduction/
+docs: https://ridedott.dev/docs/services/gbfs/introduction/
+summary:
+  types: [none, apiKey]
+  notes: >-
+    Dott exposes two variants of the same GBFS 2.3 feeds. The PUBLIC feeds under
+    gbfs.api.ridedott.com/public/v2 are open (no credentials) and use rotating vehicle
+    IDs, matching the open-data intent of GBFS. The PARTNER feeds require authentication
+    (credentials issued by Dott to integration partners) and expose stable, non-rotating
+    vehicle IDs. There is no OAuth2 / OpenID Connect surface; the public spec declares no
+    security schemes.
+schemes:
+  - name: PublicFeeds
+    type: none
+    scheme: open
+    applies_to: https://gbfs.api.ridedott.com/public/v2
+    sources: [openapi/dott-gbfs-openapi.yml]
+    notes: Open, unauthenticated GBFS 2.3 feeds with rotating vehicle IDs.
+  - name: PartnerFeeds
+    type: apiKey
+    scheme: partner-credential
+    applies_to: https://gbfs.api.ridedott.com (partner base)
+    sources: [https://ridedott.dev/docs/services/gbfs/introduction/]
+    notes: >-
+      Authenticated partner variant; credentials are provisioned by Dott. Removes the
+      rotating-ID behavior of the public feed. Well-known paths on the API host return 401,
+      confirming an auth gate. Exact header name is not published publicly.
