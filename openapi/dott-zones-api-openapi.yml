@@ -1,0 +1,86 @@
+openapi: 3.0.3
+info:
+  title: Dott GBFS Discovery Zones API
+  version: '2.3'
+  description: Dott's implementation of the General Bikeshare Feed Specification (GBFS) 2.3 for its shared e-scooter and e-bike fleets across European and Middle Eastern cities. The public feed set exposes real-time system information, vehicle types, pricing plans, free-floating vehicle status, geofencing zones, and (where operated as docked) station information and status. City is a path segment; the discovery document at /public/v2/gbfs.json lists every available city and feed. Partner integrators use an authenticated variant of the same feeds that carries stable (non-rotating) vehicle IDs.
+  contact:
+    name: Dott Partner Integrations
+    url: https://ridedott.dev/docs/services/gbfs/introduction/
+  license:
+    name: GBFS (Creative Commons / MobilityData)
+    url: https://github.com/MobilityData/gbfs/blob/v2.3/gbfs.md
+servers:
+- url: https://gbfs.api.ridedott.com/public/v2
+  description: Public GBFS 2.3 feeds (open, rotating vehicle IDs)
+tags:
+- name: Zones
+  description: Geofencing / operating zones
+paths:
+  /{city}/geofencing_zones.json:
+    get:
+      tags:
+      - Zones
+      operationId: getGeofencingZones
+      summary: Geofencing zones (GeoJSON) for a city
+      parameters:
+      - $ref: '#/components/parameters/City'
+      responses:
+        '200':
+          description: Geofencing zones
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GbfsFeed'
+        '404':
+          $ref: '#/components/responses/RegionNotFound'
+components:
+  parameters:
+    City:
+      name: city
+      in: path
+      required: true
+      description: City slug as listed in the discovery document (e.g. espoo, brussels, warsaw).
+      schema:
+        type: string
+      example: espoo
+  responses:
+    RegionNotFound:
+      description: The requested city/region is not available.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            error: 'Not Found: ERR_REGION_NOT_FOUND'
+  schemas:
+    GbfsEnvelope:
+      type: object
+      description: Common GBFS envelope wrapping every feed response.
+      required:
+      - last_updated
+      - ttl
+      - version
+      - data
+      properties:
+        last_updated:
+          type: integer
+          description: POSIX timestamp of last data refresh
+        ttl:
+          type: integer
+          description: Seconds the response can be cached before refetching
+        version:
+          type: string
+          example: '2.3'
+        data:
+          type: object
+    GbfsFeed:
+      allOf:
+      - $ref: '#/components/schemas/GbfsEnvelope'
+    Error:
+      type: object
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          description: Human-readable error message string (GBFS-style flat envelope).
