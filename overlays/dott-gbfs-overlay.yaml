@@ -1,0 +1,15 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Dott GBFS API
+  version: 1.0.0
+extends: openapi/dott-gbfs-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-standard: GBFS 2.3
+      x-apievangelist-read-only: true
+      x-apievangelist-data-model: data-model/dott-data-model.yml
+  - target: $.info
+    update:
+      x-apievangelist-conventions: conventions/dott-conventions.yml
+      x-apievangelist-errors: errors/dott-problem-types.yml

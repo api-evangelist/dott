@@ -1,0 +1,32 @@
+generated: '2026-07-18'
+method: searched
+source: https://ridedott.dev/docs/services/gbfs/introduction/ ; live feeds report version 2.3
+standards:
+  - id: gbfs-2.3
+    name: General Bikeshare Feed Specification 2.3
+    conforms: true
+    evidence: >-
+      Every live feed response declares "version":"2.3"; discovery, system_information,
+      vehicle_types, system_pricing_plans, free_bike_status, geofencing_zones,
+      station_information and station_status feeds are all served per the GBFS 2.3 shape.
+    spec: https://github.com/MobilityData/gbfs/blob/v2.3/gbfs.md
+  - id: geojson
+    name: GeoJSON (RFC 7946)
+    conforms: true
+    evidence: geofencing_zones feed returns a GeoJSON FeatureCollection of MultiPolygon zones.
+  - id: openapi-3.0
+    name: OpenAPI 3.0
+    conforms: true
+    evidence: API Evangelist generated OpenAPI 3.0.3 (openapi/dott-gbfs-openapi.yml) from the live public feeds.
+  - id: rfc9457-problem-details
+    name: RFC 9457 Problem Details
+    conforms: false
+    evidence: Errors use a flat {"error":"..."} envelope, not application/problem+json.
+  - id: oauth2
+    name: OAuth 2.0
+    conforms: false
+    evidence: No OAuth2 security scheme; public feeds are open, partner feeds use issued credentials.
+  - id: pagination
+    name: Cursor/offset pagination
+    conforms: false
+    evidence: GBFS feeds return full point-in-time snapshots with a ttl; no pagination.

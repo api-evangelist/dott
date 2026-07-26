@@ -1,0 +1,8 @@
+generated: '2026-07-18'
+method: generated
+source: openapi/dott-gbfs-openapi.yml
+skills:
+  - file: dott-find-available-vehicles.md
+    name: Find available Dott vehicles in a city
+    api: openapi/dott-gbfs-openapi.yml
+    operations: [getGbfsDiscovery, getSystemInformation, getVehicleTypes, getSystemPricingPlans, getFreeBikeStatus, getGeofencingZones]

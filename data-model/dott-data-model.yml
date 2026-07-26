@@ -1,0 +1,58 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/dott-gbfs-openapi.yml ; live GBFS 2.3 feed payloads
+entities:
+  - name: System
+    feed: system_information.json
+    key: system_id
+    id_example: dott-espoo
+    fields: [system_id, language, name, timezone, rental_apps]
+  - name: VehicleType
+    feed: vehicle_types.json
+    key: vehicle_type_id
+    id_example: dott_scooter
+    fields: [form_factor, propulsion_type, max_range_meters, pricing_plan_ids]
+  - name: PricingPlan
+    feed: system_pricing_plans.json
+    key: plan_id
+    id_example: d1469b83-4438-4b8e-bdd9-b48026f124d8
+    fields: [name, currency, price, per_min_pricing, is_taxable, description]
+  - name: Vehicle
+    feed: free_bike_status.json
+    key: bike_id
+    fields: [lat, lon, is_disabled, is_reserved, current_range_meters, current_fuel_percent, vehicle_type_id, pricing_plan_id, rental_uris, last_reported]
+  - name: GeofencingZone
+    feed: geofencing_zones.json
+    key: null
+    fields: [type (FeatureCollection), features (GeoJSON MultiPolygon), rules]
+  - name: Station
+    feed: station_information.json
+    key: station_id
+    fields: [name, lat, lon]
+    note: Present only in cities Dott operates as docked.
+  - name: StationStatus
+    feed: station_status.json
+    key: station_id
+    fields: [num_bikes_available, num_docks_available, is_installed, is_renting, is_returning]
+    note: Present only in cities Dott operates as docked.
+relationships:
+  - from: Vehicle
+    to: VehicleType
+    kind: belongs_to
+    via: vehicle_type_id
+  - from: Vehicle
+    to: PricingPlan
+    kind: belongs_to
+    via: pricing_plan_id
+  - from: VehicleType
+    to: PricingPlan
+    kind: has_many
+    via: pricing_plan_ids
+  - from: StationStatus
+    to: Station
+    kind: belongs_to
+    via: station_id
+  - from: System
+    to: Vehicle
+    kind: has_many
+    via: system scope (per-city feed)

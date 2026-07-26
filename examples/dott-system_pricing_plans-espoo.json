@@ -1,0 +1,24 @@
+{
+    "data": {
+        "plans": [
+            {
+                "currency": "EUR",
+                "description": "Pricing information for Espoo (scooter): Riders pay 0.25 EUR to unlock and 0.25 EUR per minute.",
+                "is_taxable": false,
+                "name": "espoo-scooter-system-pricing-plan",
+                "plan_id": "d1469b83-4438-4b8e-bdd9-b48026f124d8",
+                "price": 0.25,
+                "per_min_pricing": [
+                    {
+                        "interval": 1,
+                        "rate": 0.25,
+                        "start": 1
+                    }
+                ]
+            }
+        ]
+    },
+    "last_updated": 1784431080,
+    "ttl": 0,
+    "version": "2.3"
+}

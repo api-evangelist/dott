@@ -1,8 +1,28 @@
 aid: dott
 name: Dott
-description: 'Dott is a company surfaced as a portfolio company of softbank-vision-fund and added to the
-  API Evangelist network as a stub for enrichment. Sector: transportation. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  Dott is a European shared micromobility operator running fleets of electric scooters and
+  e-bikes across 250+ cities in Europe and the Middle East. Formed from the 2024 merger of
+  Dott and TIER (the TIER brand was retired into the Dott app that year), the company is
+  headquartered in Amsterdam, Berlin and Paris. For developers and mobility-data partners,
+  Dott publishes its fleet data through the open GBFS 2.3 standard: real-time vehicle
+  locations, vehicle types, per-city pricing plans, geofencing zones and station data are
+  served from gbfs.api.ridedott.com, with an authenticated partner variant carrying stable
+  (non-rotating) vehicle IDs. Originally added to the API Evangelist network as a SoftBank
+  Vision Fund portfolio lead, enriched from its live public developer surface.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://avatars.githubusercontent.com/u/45282822?v=4
 url: https://raw.githubusercontent.com/api-evangelist/dott/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,13 +32,121 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
 - Transportation
-apis: []
+- Micromobility
+- Mobility
+- E-Scooter
+- E-Bike
+- GBFS
+- Shared Mobility
+- Smart City
+- Sustainability
+apis:
+- aid: dott:dott-discovery-api
+  name: Dott Discovery API
+  description: Auto-discovery of available feeds and cities
+  humanURL: https://ridedott.dev
+  baseURL: https://gbfs.api.ridedott.com/public/v2
+  tags:
+  - Discovery
+  properties:
+  - type: OpenAPI
+    url: openapi/dott-discovery-api-openapi.yml
+- aid: dott:dott-stations-api
+  name: Dott Stations API
+  description: Docked station information and status (where applicable)
+  humanURL: https://ridedott.dev
+  baseURL: https://gbfs.api.ridedott.com/public/v2
+  tags:
+  - Stations
+  properties:
+  - type: OpenAPI
+    url: openapi/dott-stations-api-openapi.yml
+- aid: dott:dott-system-api
+  name: Dott System API
+  description: System-level metadata and pricing
+  humanURL: https://ridedott.dev
+  baseURL: https://gbfs.api.ridedott.com/public/v2
+  tags:
+  - System
+  properties:
+  - type: OpenAPI
+    url: openapi/dott-system-api-openapi.yml
+- aid: dott:dott-vehicles-api
+  name: Dott Vehicles API
+  description: Free-floating vehicle status and types
+  humanURL: https://ridedott.dev
+  baseURL: https://gbfs.api.ridedott.com/public/v2
+  tags:
+  - Vehicles
+  properties:
+  - type: OpenAPI
+    url: openapi/dott-vehicles-api-openapi.yml
+- aid: dott:dott-zones-api
+  name: Dott Zones API
+  description: Geofencing / operating zones
+  humanURL: https://ridedott.dev
+  baseURL: https://gbfs.api.ridedott.com/public/v2
+  tags:
+  - Zones
+  properties:
+  - type: OpenAPI
+    url: openapi/dott-zones-api-openapi.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+common:
+- type: Website
+  url: https://ridedott.com
+- type: DeveloperPortal
+  url: https://ridedott.dev
+- type: Documentation
+  url: https://ridedott.dev/docs/services/gbfs/introduction/
+- type: APIReference
+  url: https://gbfs.documentation.ridedott.com/
+- type: GettingStarted
+  url: https://ridedott.dev/docs/services/gbfs/get-started-gbfs/
+- type: GitHubOrganization
+  url: https://github.com/ridedott
+- type: Blog
+  url: https://ridedott.com/blog/
+- type: TermsOfService
+  url: https://ridedott.com/terms/
+- type: PrivacyPolicy
+  url: https://ridedott.com/privacy/
+- type: OpenAPI
+  url: openapi/dott-gbfs-openapi.yml
+- type: Overlay
+  url: overlays/dott-gbfs-overlay.yaml
+- type: Examples
+  url: examples/dott-system_information-espoo.json
+- type: Authentication
+  url: authentication/dott-authentication.yml
+- type: Conventions
+  url: conventions/dott-conventions.yml
+- type: ErrorCatalog
+  url: errors/dott-problem-types.yml
+- type: DataModel
+  url: data-model/dott-data-model.yml
+- type: Conformance
+  url: conformance/dott-conformance.yml
+- type: Lifecycle
+  url: lifecycle/dott-lifecycle.yml
+- type: MCPServer
+  url: mcp/dott-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/dott-llms.txt
+- type: DomainSecurity
+  url: security/dott-domain-security.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

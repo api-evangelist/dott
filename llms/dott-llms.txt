@@ -1,0 +1,37 @@
+# Dott
+
+> Dott is a European shared micromobility operator running electric scooters and e-bikes across 250+ cities in Europe and the Middle East (formed from the 2024 Dott + TIER merger). It publishes real-time fleet data through the open GBFS 2.3 standard.
+
+Dott's developer surface is the GBFS 2.3 feed set at https://gbfs.api.ridedott.com/public/v2. Public feeds are open (rotating vehicle IDs); an authenticated partner variant serves stable IDs. All feeds are read-only HTTP GET returning the GBFS envelope `{ last_updated, ttl, version, data }`.
+
+## APIs
+- [Dott GBFS API](https://ridedott.dev): real-time shared-mobility feeds (vehicles, types, pricing, zones, stations)
+
+## Specs
+- [OpenAPI (generated, GBFS 2.3)](openapi/dott-gbfs-openapi.yml)
+- [OpenAPI Overlay](overlays/dott-gbfs-overlay.yaml)
+- [GBFS 2.3 standard](https://github.com/MobilityData/gbfs/blob/v2.3/gbfs.md)
+
+## Docs
+- [Partner Integrations portal](https://ridedott.dev)
+- [GBFS introduction](https://ridedott.dev/docs/services/gbfs/introduction/)
+- [Getting started](https://ridedott.dev/docs/services/gbfs/get-started-gbfs/)
+- [API reference (Swagger)](https://gbfs.documentation.ridedott.com/)
+
+## Artifacts
+- [Authentication](authentication/dott-authentication.yml)
+- [Conventions](conventions/dott-conventions.yml)
+- [Error catalog](errors/dott-problem-types.yml)
+- [Data model](data-model/dott-data-model.yml)
+- [Conformance](conformance/dott-conformance.yml)
+- [Lifecycle](lifecycle/dott-lifecycle.yml)
+- [MCP (candidate)](mcp/dott-mcp.yml)
+- [Agent skill: find available vehicles](skills/dott-find-available-vehicles.md)
+- [Domain security](security/dott-domain-security.yml)
+
+## Company
+- [Website](https://ridedott.com)
+- [Blog](https://ridedott.com/blog/)
+- [GitHub](https://github.com/ridedott)
+- [Terms of Service](https://ridedott.com/terms/)
+- [Privacy Policy](https://ridedott.com/privacy/)

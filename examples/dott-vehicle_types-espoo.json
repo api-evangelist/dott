@@ -1,0 +1,18 @@
+{
+    "data": {
+        "vehicle_types": [
+            {
+                "form_factor": "scooter",
+                "max_range_meters": 30000,
+                "pricing_plan_ids": [
+                    "d1469b83-4438-4b8e-bdd9-b48026f124d8"
+                ],
+                "propulsion_type": "electric",
+                "vehicle_type_id": "dott_scooter"
+            }
+        ]
+    },
+    "last_updated": 1784431017,
+    "ttl": 0,
+    "version": "2.3"
+}

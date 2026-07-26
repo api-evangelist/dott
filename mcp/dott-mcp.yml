@@ -1,0 +1,40 @@
+generated: '2026-07-18'
+method: derived
+status: candidate
+source: openapi/dott-gbfs-openapi.yml
+note: >-
+  Dott publishes no official MCP server. This is a CANDIDATE tool list derived one-to-one
+  from the public GBFS 2.3 operations, so an agent can read Dott fleet data. All tools are
+  read-only GETs against https://gbfs.api.ridedott.com/public/v2.
+server:
+  name: dott-gbfs
+  transport: http
+  url: null
+tools:
+  - name: get_gbfs_discovery
+    description: List every available Dott city and its feed URLs.
+    source_operation: openapi/dott-gbfs-openapi.yml#getGbfsDiscovery
+  - name: get_gbfs_versions
+    description: List supported GBFS versions.
+    source_operation: openapi/dott-gbfs-openapi.yml#getGbfsVersions
+  - name: get_system_information
+    description: Get system metadata for a city (name, timezone, rental apps).
+    source_operation: openapi/dott-gbfs-openapi.yml#getSystemInformation
+  - name: get_vehicle_types
+    description: List vehicle types (scooter/bike) available in a city.
+    source_operation: openapi/dott-gbfs-openapi.yml#getVehicleTypes
+  - name: get_system_pricing_plans
+    description: Get per-city pricing plans (unlock + per-minute rates).
+    source_operation: openapi/dott-gbfs-openapi.yml#getSystemPricingPlans
+  - name: get_free_bike_status
+    description: Get real-time free-floating vehicle locations and availability for a city.
+    source_operation: openapi/dott-gbfs-openapi.yml#getFreeBikeStatus
+  - name: get_geofencing_zones
+    description: Get geofencing/operating zones (GeoJSON) for a city.
+    source_operation: openapi/dott-gbfs-openapi.yml#getGeofencingZones
+  - name: get_station_information
+    description: Get docked station information for a city (where operated).
+    source_operation: openapi/dott-gbfs-openapi.yml#getStationInformation
+  - name: get_station_status
+    description: Get docked station real-time status for a city (where operated).
+    source_operation: openapi/dott-gbfs-openapi.yml#getStationStatus

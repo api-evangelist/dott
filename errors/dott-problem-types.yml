@@ -1,0 +1,32 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/dott-gbfs-openapi.yml ; live probe of gbfs.api.ridedott.com
+format: flat-error-envelope
+envelope:
+  shape: '{ error: string }'
+  media_type: application/json
+  notes: >-
+    Dott's GBFS API returns a flat {"error":"..."} envelope rather than RFC 9457
+    application/problem+json. The message string carries a machine-ish code prefix
+    (e.g. ERR_REGION_NOT_FOUND) inside the human-readable text.
+problems:
+  - status: 404
+    code: ERR_REGION_NOT_FOUND
+    title: Region not found
+    detail: The requested city/region slug is not an available Dott GBFS feed.
+    example: '{"error":"Not Found: ERR_REGION_NOT_FOUND"}'
+    source_operation: openapi/dott-gbfs-openapi.yml#getSystemInformation
+    observed: true
+  - status: 404
+    code: NOT_FOUND
+    title: Not found
+    detail: Requested feed or path does not exist.
+    example: '{"error":"Not Found: not found"}'
+    observed: true
+  - status: 401
+    code: UNAUTHORIZED
+    title: Unauthorized
+    detail: >-
+      Partner (non-public) feed paths and the API host's /.well-known/* require
+      Dott-issued credentials; unauthenticated requests are rejected with 401.
+    observed: true

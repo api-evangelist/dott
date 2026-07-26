@@ -1,0 +1,22 @@
+{
+  "provider": "dott",
+  "sources": [
+    "dott-discovery-api-openapi.yml",
+    "dott-stations-api-openapi.yml",
+    "dott-system-api-openapi.yml",
+    "dott-vehicles-api-openapi.yml",
+    "dott-zones-api-openapi.yml"
+  ],
+  "outputs": [
+    "dott-discovery-api-openapi.yml",
+    "dott-stations-api-openapi.yml",
+    "dott-system-api-openapi.yml",
+    "dott-vehicles-api-openapi.yml",
+    "dott-zones-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

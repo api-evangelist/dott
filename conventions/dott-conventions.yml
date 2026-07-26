@@ -1,0 +1,37 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/dott-gbfs-openapi.yml ; live GBFS 2.3 feeds
+summary: >-
+  Dott's API is the read-only GBFS 2.3 feed set. All operations are HTTP GET returning
+  a common envelope; there are no write operations, so there is no idempotency-key,
+  request-signing, or mutation contract to document.
+authentication:
+  style: open (public feeds) / issued partner credentials (authenticated feeds)
+  ref: authentication/dott-authentication.yml
+http:
+  methods: [GET]
+  read_only: true
+envelope:
+  shape: '{ last_updated: int, ttl: int, version: string, data: object }'
+  timestamp_field: last_updated
+  ttl_field: ttl
+  version_field: version
+  notes: Every feed shares the GBFS envelope; feed-specific payload lives under data.
+caching:
+  mechanism: ttl
+  notes: ttl is the number of seconds a response may be cached before refetching; last_updated is the data refresh time.
+pagination:
+  supported: false
+  notes: Feeds are full point-in-time snapshots; no cursor/offset/limit.
+idempotency:
+  supported: false
+  notes: Read-only GET-only API; no idempotency-key contract (no mutations).
+versioning:
+  ref: lifecycle/dott-lifecycle.yml
+  in_path: '/public/v2'
+  in_payload: 'version'
+error_envelope:
+  shape: '{ error: string }'
+  ref: errors/dott-problem-types.yml
+rate_limiting:
+  documented: false
