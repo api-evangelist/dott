@@ -120,7 +120,7 @@ common:
 - type: PrivacyPolicy
   url: https://ridedott.com/privacy/
 - type: OpenAPI
-  url: openapi/dott-gbfs-openapi.yml
+  url: openapi/_original/dott-gbfs-openapi.yml
 - type: Overlay
   url: overlays/dott-gbfs-overlay.yaml
 - type: Examples
