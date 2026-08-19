@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dott GBFS Discovery System API",
+    "version": "2.3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "System",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "System information for a city",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gbfs.api.ridedott.com/public/v2/:city/system_information.json",
+            "params": [
+              {
+                "name": "city",
+                "value": "espoo",
+                "type": "path",
+                "description": "City slug as listed in the discovery document (e.g. espoo, brussels, warsaw)."
+              }
+            ]
+          },
+          "docs": "System information for a city"
+        },
+        {
+          "info": {
+            "name": "Pricing plans for a city",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gbfs.api.ridedott.com/public/v2/:city/system_pricing_plans.json",
+            "params": [
+              {
+                "name": "city",
+                "value": "espoo",
+                "type": "path",
+                "description": "City slug as listed in the discovery document (e.g. espoo, brussels, warsaw)."
+              }
+            ]
+          },
+          "docs": "Pricing plans for a city"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,290 @@
+{
+  "item": [
+    {
+      "id": "681346da-871a-466c-b274-04ccc8f25027",
+      "name": "Stations",
+      "description": {
+        "content": "Docked station information and status (where applicable)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a7f25a3d-be47-41c6-93a6-162e59b658bb",
+          "name": "Docked station information (where operated)",
+          "request": {
+            "name": "Docked station information (where operated)",
+            "description": {},
+            "url": {
+              "path": [
+                ":city",
+                "station_information.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "city",
+                  "description": "(Required) City slug as listed in the discovery document (e.g. espoo, brussels, warsaw)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "829a503b-ccfc-40e9-88d5-19570457b02e",
+              "name": "Station information",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":city",
+                    "station_information.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "city",
+                      "description": "(Required) City slug as listed in the discovery document (e.g. espoo, brussels, warsaw)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"last_updated\": 2512,\n  \"ttl\": 368,\n  \"version\": \"2.3\",\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "19d53272-1fb5-4f63-a639-5744ec7b2215",
+              "name": "The requested city/region is not available.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":city",
+                    "station_information.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "city",
+                      "description": "(Required) City slug as listed in the discovery document (e.g. espoo, brussels, warsaw)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Not Found: ERR_REGION_NOT_FOUND\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "891b1ea7-23f7-4a9a-b641-97eebf7a0bbc",
+          "name": "Docked station real-time status (where operated)",
+          "request": {
+            "name": "Docked station real-time status (where operated)",
+            "description": {},
+            "url": {
+              "path": [
+                ":city",
+                "station_status.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "city",
+                  "description": "(Required) City slug as listed in the discovery document (e.g. espoo, brussels, warsaw)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f97e4640-2d75-4a0d-8c95-aa986001a418",
+              "name": "Station status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":city",
+                    "station_status.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "city",
+                      "description": "(Required) City slug as listed in the discovery document (e.g. espoo, brussels, warsaw)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"last_updated\": 2512,\n  \"ttl\": 368,\n  \"version\": \"2.3\",\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4c14178f-2d58-4861-b1e4-cae979f84aec",
+              "name": "The requested city/region is not available.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":city",
+                    "station_status.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "city",
+                      "description": "(Required) City slug as listed in the discovery document (e.g. espoo, brussels, warsaw)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Not Found: ERR_REGION_NOT_FOUND\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gbfs.api.ridedott.com/public/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "24620bd4-718b-4f20-a3c1-414ca246cb05",
+    "name": "Dott GBFS Discovery Stations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dott's implementation of the General Bikeshare Feed Specification (GBFS) 2.3 for its shared e-scooter and e-bike fleets across European and Middle Eastern cities. The public feed set exposes real-time system information, vehicle types, pricing plans, free-floating vehicle status, geofencing zones, and (where operated as docked) station information and status. City is a path segment; the discovery document at /public/v2/gbfs.json lists every available city and feed. Partner integrators use an authenticated variant of the same feeds that carries stable (non-rotating) vehicle IDs.\n\nContact Support:\n Name: Dott Partner Integrations",
+      "type": "text/plain"
+    }
+  }
+}

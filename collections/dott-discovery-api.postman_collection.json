@@ -1,0 +1,169 @@
+{
+  "item": [
+    {
+      "id": "2a180992-1a18-4719-bbe2-5b3bffc3f2ad",
+      "name": "Discovery",
+      "description": {
+        "content": "Auto-discovery of available feeds and cities",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "014ff257-b8b9-44be-8455-8ab05c36f5fd",
+          "name": "GBFS auto-discovery document",
+          "request": {
+            "name": "GBFS auto-discovery document",
+            "description": {
+              "content": "Lists every published feed URL for every available city, grouped by language.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gbfs.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1fbc476a-3fa2-4cfc-b6f5-7826be0d5657",
+              "name": "Discovery document",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gbfs.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"last_updated\": 8514,\n  \"ttl\": 632,\n  \"version\": \"2.3\",\n  \"data\": {\n    \"key_0\": {\n      \"feeds\": [\n        {\n          \"name\": \"string\",\n          \"url\": \"http://UogUxQBChUWipabeci.qwm3+fgpa+ydz7WiY5fEwbr-ahgLch2FXioP0DyQYTB6lQs86\"\n        },\n        {\n          \"name\": \"string\",\n          \"url\": \"http://QWupYQzvKnYXjBjpPNQJuQRLxiNzz.qsjHhs58KXTZBjYx5XOV8UxsNXw9Pi+AnSQAqrT6VCSxra5T-\"\n        }\n      ]\n    },\n    \"key_1\": {\n      \"feeds\": [\n        {\n          \"name\": \"string\",\n          \"url\": \"https://JyjwMmjSHIlnnqsJNwB.caoOMm2,eWZmyh\"\n        },\n        {\n          \"name\": \"string\",\n          \"url\": \"http://szzvQilyyDHfvcnCmNcgxAslGKf.hxqWZqgfmuuGJ0ocRI-6Hg0XL8njaB3xz9nQ3BpYTFquDe5pJ2Y39G9ueWx2MnYJl\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eaf8453f-58d7-427a-9931-996ea70c7941",
+          "name": "Supported GBFS versions",
+          "request": {
+            "name": "Supported GBFS versions",
+            "description": {},
+            "url": {
+              "path": [
+                "gbfs_versions.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1d688cf4-1b97-49b1-a42f-20b1a4b5e2da",
+              "name": "Versions list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gbfs_versions.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"last_updated\": 7542,\n  \"ttl\": 1800,\n  \"version\": \"2.3\",\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gbfs.api.ridedott.com/public/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e618a873-fe08-43a4-86e3-63e6c83e9266",
+    "name": "Dott GBFS Discovery API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dott's implementation of the General Bikeshare Feed Specification (GBFS) 2.3 for its shared e-scooter and e-bike fleets across European and Middle Eastern cities. The public feed set exposes real-time system information, vehicle types, pricing plans, free-floating vehicle status, geofencing zones, and (where operated as docked) station information and status. City is a path segment; the discovery document at /public/v2/gbfs.json lists every available city and feed. Partner integrators use an authenticated variant of the same feeds that carries stable (non-rotating) vehicle IDs.\n\nContact Support:\n Name: Dott Partner Integrations",
+      "type": "text/plain"
+    }
+  }
+}

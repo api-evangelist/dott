@@ -1,0 +1,161 @@
+{
+  "item": [
+    {
+      "id": "d8929790-4e66-40d5-ad0f-02527a530abb",
+      "name": "Zones",
+      "description": {
+        "content": "Geofencing / operating zones",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0246563a-78ac-456b-83fb-2163ba821d37",
+          "name": "Geofencing zones (GeoJSON) for a city",
+          "request": {
+            "name": "Geofencing zones (GeoJSON) for a city",
+            "description": {},
+            "url": {
+              "path": [
+                ":city",
+                "geofencing_zones.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "city",
+                  "description": "(Required) City slug as listed in the discovery document (e.g. espoo, brussels, warsaw)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6853cc88-8bf3-4090-beb1-a952493c8d5a",
+              "name": "Geofencing zones",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":city",
+                    "geofencing_zones.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "city",
+                      "description": "(Required) City slug as listed in the discovery document (e.g. espoo, brussels, warsaw)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"last_updated\": 4692,\n  \"ttl\": 2217,\n  \"version\": \"2.3\",\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a9b14be7-222b-458d-8129-9516c6177bf8",
+              "name": "The requested city/region is not available.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":city",
+                    "geofencing_zones.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "city",
+                      "description": "(Required) City slug as listed in the discovery document (e.g. espoo, brussels, warsaw)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Not Found: ERR_REGION_NOT_FOUND\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gbfs.api.ridedott.com/public/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "dffc9a76-946c-429b-a595-6518c1fb4281",
+    "name": "Dott GBFS Discovery Zones API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dott's implementation of the General Bikeshare Feed Specification (GBFS) 2.3 for its shared e-scooter and e-bike fleets across European and Middle Eastern cities. The public feed set exposes real-time system information, vehicle types, pricing plans, free-floating vehicle status, geofencing zones, and (where operated as docked) station information and status. City is a path segment; the discovery document at /public/v2/gbfs.json lists every available city and feed. Partner integrators use an authenticated variant of the same feeds that carries stable (non-rotating) vehicle IDs.\n\nContact Support:\n Name: Dott Partner Integrations",
+      "type": "text/plain"
+    }
+  }
+}

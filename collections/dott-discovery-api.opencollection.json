@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dott GBFS Discovery API",
+    "version": "2.3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Discovery",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GBFS auto-discovery document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gbfs.api.ridedott.com/public/v2/gbfs.json"
+          },
+          "docs": "Lists every published feed URL for every available city, grouped by language."
+        },
+        {
+          "info": {
+            "name": "Supported GBFS versions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gbfs.api.ridedott.com/public/v2/gbfs_versions.json"
+          },
+          "docs": "Supported GBFS versions"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

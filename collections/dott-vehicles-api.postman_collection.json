@@ -1,0 +1,293 @@
+{
+  "item": [
+    {
+      "id": "7623a568-7038-45ad-ac79-0ce8a4072594",
+      "name": "Vehicles",
+      "description": {
+        "content": "Free-floating vehicle status and types",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "07362c28-50d7-474f-9855-12fabac5bb1f",
+          "name": "Vehicle types available in a city",
+          "request": {
+            "name": "Vehicle types available in a city",
+            "description": {},
+            "url": {
+              "path": [
+                ":city",
+                "vehicle_types.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "city",
+                  "description": "(Required) City slug as listed in the discovery document (e.g. espoo, brussels, warsaw)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7563dd17-af89-4030-b7a7-4e1c4ff00da8",
+              "name": "Vehicle types",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":city",
+                    "vehicle_types.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "city",
+                      "description": "(Required) City slug as listed in the discovery document (e.g. espoo, brussels, warsaw)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"last_updated\": 4147,\n  \"ttl\": 8974,\n  \"version\": \"2.3\",\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "69d46056-a6a7-4b50-ba9a-1c54da05be11",
+              "name": "The requested city/region is not available.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":city",
+                    "vehicle_types.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "city",
+                      "description": "(Required) City slug as listed in the discovery document (e.g. espoo, brussels, warsaw)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Not Found: ERR_REGION_NOT_FOUND\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "52d4ddfb-bae6-49a1-85e3-752ad5a30ef0",
+          "name": "Real-time free-floating vehicle status",
+          "request": {
+            "name": "Real-time free-floating vehicle status",
+            "description": {
+              "content": "Location, range and availability of every free-floating vehicle in the city.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":city",
+                "free_bike_status.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "city",
+                  "description": "(Required) City slug as listed in the discovery document (e.g. espoo, brussels, warsaw)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "950b6cad-8afe-4866-869f-fc8fcfcf62cd",
+              "name": "Free bike status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":city",
+                    "free_bike_status.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "city",
+                      "description": "(Required) City slug as listed in the discovery document (e.g. espoo, brussels, warsaw)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"last_updated\": 4147,\n  \"ttl\": 8974,\n  \"version\": \"2.3\",\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "29785cbc-7a93-43df-b7c3-6a994dbc7e7d",
+              "name": "The requested city/region is not available.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":city",
+                    "free_bike_status.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "city",
+                      "description": "(Required) City slug as listed in the discovery document (e.g. espoo, brussels, warsaw)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Not Found: ERR_REGION_NOT_FOUND\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gbfs.api.ridedott.com/public/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1ba936dc-5434-42b1-a02d-3abd85d91b8f",
+    "name": "Dott GBFS Discovery Vehicles API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Dott's implementation of the General Bikeshare Feed Specification (GBFS) 2.3 for its shared e-scooter and e-bike fleets across European and Middle Eastern cities. The public feed set exposes real-time system information, vehicle types, pricing plans, free-floating vehicle status, geofencing zones, and (where operated as docked) station information and status. City is a path segment; the discovery document at /public/v2/gbfs.json lists every available city and feed. Partner integrators use an authenticated variant of the same feeds that carries stable (non-rotating) vehicle IDs.\n\nContact Support:\n Name: Dott Partner Integrations",
+      "type": "text/plain"
+    }
+  }
+}
