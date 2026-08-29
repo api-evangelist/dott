@@ -1,0 +1,26 @@
+slug: dott
+provider: Dott
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Transportation & Logistics
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Vehicles
+  spec_file: dott-vehicles-api-openapi.yml
+  capability_id: BC-2430.40
+  capability_id_l1: BC-2430
+  capability_name: Fleet Telematics and Monitoring
+  confidence: 0.7
+  evidence: GET /{city}/free_bike_status.json getFreeBikeStatus 'Real-time free-floating vehicle status';
+    GET /{city}/vehicle_types.json 'Vehicle types available in a city'
+  reason: Real-time position and condition status of individual free-floating scooters and e-bikes plus
+    the vehicle-type catalogue — monitoring of mobile asset position and state. Some ambiguity with capacity
+    inventory, since the same feed also signals availability to riders.
