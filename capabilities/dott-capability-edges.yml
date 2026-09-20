@@ -11,8 +11,20 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 1
+edge_count: 2
 edges:
+- tag: System
+  spec_file: dott-system-api-openapi.yml
+  capability_id: BC-3490.10
+  capability_id_l1: BC-3490
+  capability_name: Mobility Service Catalogue Management
+  confidence: 0.75
+  evidence: GET /{city}/system_pricing_plans.json — 'Pricing plans for a city'; 'System information for
+    a city'
+  reason: Publishes the shared micromobility system's per-city service definition and pricing plans, matching
+    Mobility Service Catalogue Management ('mobility service types, pricing plans, and geographic coverage
+    zones'). Read-only feed, so confidence held below 0.8.
+  recovered_from: vertical-automotive-mobility-edges.json
 - tag: Vehicles
   spec_file: dott-vehicles-api-openapi.yml
   capability_id: BC-2430.40
