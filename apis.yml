@@ -46,6 +46,9 @@ x-tier-reason: portfolio-lead
 specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-07-18'
+x-docs-platform: docusaurus
+x-docs-platform-confidence: medium
+x-docs-platform-checked: 2026-09-25
 tags:
 - Company
 - Transportation
@@ -119,6 +122,22 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/dott-zones-api-openapi.yml
+- name: Dott Partner API
+  description: Partner-facing data API from Dott (formerly TIER), providing vehicle and availability data
+    (GBFS-style) to authorized partners. Access requires a per-partner API Key issued through Dott's registration
+    process and is governed by the published API Licence; the data host rejects unauthenticated requests
+    with HTTP 401.
+  humanURL: https://ridedott.com/api-licence/
+  baseURL: https://gbfs.api.ridedott.com
+  tags:
+  - Micromobility
+  - GBFS
+  - Mobility
+  properties:
+  - type: Authentication
+    url: authentication/tier-mobility-authentication.yml
+  - type: TermsOfService
+    url: https://ridedott.com/api-licence/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -173,6 +192,8 @@ common:
   url: llms/dott-llms.txt
 - type: DomainSecurity
   url: security/dott-domain-security.yml
+- url: https://ridedott.com/feed
+  type: Blog
 x-enrichment:
   date: '2026-07-19'
   status: backfilled

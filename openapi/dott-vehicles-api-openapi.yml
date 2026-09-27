@@ -53,14 +53,6 @@ paths:
           $ref: '#/components/responses/RegionNotFound'
 components:
   schemas:
-    Error:
-      type: object
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          description: Human-readable error message string (GBFS-style flat envelope).
     GbfsFeed:
       allOf:
       - $ref: '#/components/schemas/GbfsEnvelope'
@@ -84,6 +76,14 @@ components:
           example: '2.3'
         data:
           type: object
+    Error:
+      type: object
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          description: Human-readable error message string (GBFS-style flat envelope).
   responses:
     RegionNotFound:
       description: The requested city/region is not available.
