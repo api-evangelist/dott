@@ -45,6 +45,26 @@ paths:
                 $ref: '#/components/schemas/GbfsFeed'
 components:
   schemas:
+    GbfsEnvelope:
+      type: object
+      description: Common GBFS envelope wrapping every feed response.
+      required:
+      - last_updated
+      - ttl
+      - version
+      - data
+      properties:
+        last_updated:
+          type: integer
+          description: POSIX timestamp of last data refresh
+        ttl:
+          type: integer
+          description: Seconds the response can be cached before refetching
+        version:
+          type: string
+          example: '2.3'
+        data:
+          type: object
     GbfsDiscovery:
       allOf:
       - $ref: '#/components/schemas/GbfsEnvelope'
@@ -68,23 +88,3 @@ components:
     GbfsFeed:
       allOf:
       - $ref: '#/components/schemas/GbfsEnvelope'
-    GbfsEnvelope:
-      type: object
-      description: Common GBFS envelope wrapping every feed response.
-      required:
-      - last_updated
-      - ttl
-      - version
-      - data
-      properties:
-        last_updated:
-          type: integer
-          description: POSIX timestamp of last data refresh
-        ttl:
-          type: integer
-          description: Seconds the response can be cached before refetching
-        version:
-          type: string
-          example: '2.3'
-        data:
-          type: object
