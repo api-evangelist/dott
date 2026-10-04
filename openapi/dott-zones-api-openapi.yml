@@ -35,6 +35,17 @@ paths:
           $ref: '#/components/responses/RegionNotFound'
 components:
   schemas:
+    Error:
+      type: object
+      required:
+      - error
+      properties:
+        error:
+          type: string
+          description: Human-readable error message string (GBFS-style flat envelope).
+    GbfsFeed:
+      allOf:
+      - $ref: '#/components/schemas/GbfsEnvelope'
     GbfsEnvelope:
       type: object
       description: Common GBFS envelope wrapping every feed response.
@@ -55,26 +66,6 @@ components:
           example: '2.3'
         data:
           type: object
-    GbfsFeed:
-      allOf:
-      - $ref: '#/components/schemas/GbfsEnvelope'
-    Error:
-      type: object
-      required:
-      - error
-      properties:
-        error:
-          type: string
-          description: Human-readable error message string (GBFS-style flat envelope).
-  parameters:
-    City:
-      name: city
-      in: path
-      required: true
-      description: City slug as listed in the discovery document (e.g. espoo, brussels, warsaw).
-      schema:
-        type: string
-      example: espoo
   responses:
     RegionNotFound:
       description: The requested city/region is not available.
@@ -84,3 +75,12 @@ components:
             $ref: '#/components/schemas/Error'
           example:
             error: 'Not Found: ERR_REGION_NOT_FOUND'
+  parameters:
+    City:
+      name: city
+      in: path
+      required: true
+      description: City slug as listed in the discovery document (e.g. espoo, brussels, warsaw).
+      schema:
+        type: string
+      example: espoo

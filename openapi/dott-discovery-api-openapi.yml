@@ -65,6 +65,9 @@ components:
           example: '2.3'
         data:
           type: object
+    GbfsFeed:
+      allOf:
+      - $ref: '#/components/schemas/GbfsEnvelope'
     GbfsDiscovery:
       allOf:
       - $ref: '#/components/schemas/GbfsEnvelope'
@@ -85,6 +88,3 @@ components:
                       url:
                         type: string
                         format: uri
-    GbfsFeed:
-      allOf:
-      - $ref: '#/components/schemas/GbfsEnvelope'
