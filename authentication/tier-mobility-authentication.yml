@@ -1,0 +1,64 @@
+generated: '2026-09-16'
+method: searched
+source: https://ridedott.com/api-licence/
+docs: https://ridedott.com/api-licence/
+note: >-
+  The refined GBFS OpenAPIs declare no securitySchemes (derive-authentication.py found none) because
+  the public GBFS 2.3 feeds under https://gbfs.api.ridedott.com/public/v2/ answer anonymously. The
+  partner surface on the same host is key-gated: Dott's API Licence requires an API Key obtained
+  through a registration process Dott communicates to the licensee, and the host rejects requests
+  without an Authorization header. The header scheme below was established by live probing, not
+  from published docs — Dott does not publish a partner auth reference.
+summary:
+  types:
+  - none
+  - http
+  api_key_locations:
+  - header
+schemes:
+- name: publicGbfs
+  type: none
+  applies_to: https://gbfs.api.ridedott.com/public/v2/
+  description: Public GBFS 2.3 discovery and data feeds need no credential.
+  evidence:
+  - url: https://gbfs.api.ridedott.com/public/v2/berlin/gbfs.json
+    status: 200
+  - url: https://gbfs.api.ridedott.com/public/v2/gbfs_versions.json
+    status: 200
+- name: partnerApiKey
+  type: http
+  scheme: bearer
+  in: header
+  header: Authorization
+  applies_to: https://gbfs.api.ridedott.com (non-public paths — Dott Partner API)
+  description: >-
+    Per-partner API Key issued by Dott. The licence states: "You must obtain a security key
+    ("API Key") through a registration process communicated by Dott", the key may not be shared
+    or embedded in open source, must be the sole means of access, and may be revoked at any time.
+  issuance: Registration process communicated by Dott (no self-serve signup is published).
+  revocable: true
+  evidence:
+  - url: https://ridedott.com/api-licence/
+    status: 200
+    finding: licence text requires a Dott-issued API Key
+  - url: https://gbfs.api.ridedott.com/
+    status: 401
+    finding: 'no header -> {"error":"Unauthorized: missing authorization header"}'
+  - url: https://gbfs.api.ridedott.com/
+    status: 403
+    finding: 'Authorization: Bearer <invalid> -> {"error":"Forbidden: access denied"} (scheme accepted, key refused)'
+  - url: https://gbfs.api.ridedott.com/
+    status: 401
+    finding: 'Authorization without a Bearer/with Basic -> {"error":"Unauthorized: invalid authorization header"}'
+related:
+  wordpress_mcp_oauth:
+    note: >-
+      Separate from the data API: ridedott.com (the WordPress corporate site) publishes OAuth 2.0
+      authorization-server and protected-resource metadata for the WordPress MCP Adapter endpoint
+      https://ridedott.com/wp-json/mcp/mcp-oauth-server (authorization_code + PKCE S256, public
+      clients, scope "mcp"). tools/list returns 401 mcp_unauthorized. This is a platform-authored CMS
+      surface, not documented by Dott as a developer product; see well-known/.
+    authorization_endpoint: https://ridedott.com/oauth/authorize
+    token_endpoint: https://ridedott.com/oauth/token
+    scopes:
+    - mcp
