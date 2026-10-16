@@ -2,11 +2,11 @@
   "repo": "dott",
   "feeds": [
     {
-      "source": "https://github.com/ridedott",
-      "feed_url": "https://github.com/ridedott",
+      "source": "https://ridedott.com/blog/",
+      "feed_url": "https://ridedott.com/blog/feed/",
       "title": "",
       "saved": 0,
-      "method": "none"
+      "method": "discovered"
     },
     {
       "source": "https://ridedott.com/feed",
@@ -14,8 +14,15 @@
       "title": "",
       "saved": 0,
       "method": "feed"
+    },
+    {
+      "source": "https://github.com/ridedott",
+      "feed_url": "https://github.com/ridedott",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
   "post_count": 10,
-  "fetched": "2026-10-03T12:30:02Z"
+  "fetched": "2026-10-10T13:15:00Z"
 }
