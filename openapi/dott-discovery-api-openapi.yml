@@ -45,6 +45,9 @@ paths:
                 $ref: '#/components/schemas/GbfsFeed'
 components:
   schemas:
+    GbfsFeed:
+      allOf:
+      - $ref: '#/components/schemas/GbfsEnvelope'
     GbfsEnvelope:
       type: object
       description: Common GBFS envelope wrapping every feed response.
@@ -65,9 +68,6 @@ components:
           example: '2.3'
         data:
           type: object
-    GbfsFeed:
-      allOf:
-      - $ref: '#/components/schemas/GbfsEnvelope'
     GbfsDiscovery:
       allOf:
       - $ref: '#/components/schemas/GbfsEnvelope'

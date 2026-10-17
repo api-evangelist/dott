@@ -52,6 +52,15 @@ paths:
         '404':
           $ref: '#/components/responses/RegionNotFound'
 components:
+  parameters:
+    City:
+      name: city
+      in: path
+      required: true
+      description: City slug as listed in the discovery document (e.g. espoo, brussels, warsaw).
+      schema:
+        type: string
+      example: espoo
   schemas:
     Error:
       type: object
@@ -93,12 +102,3 @@ components:
             $ref: '#/components/schemas/Error'
           example:
             error: 'Not Found: ERR_REGION_NOT_FOUND'
-  parameters:
-    City:
-      name: city
-      in: path
-      required: true
-      description: City slug as listed in the discovery document (e.g. espoo, brussels, warsaw).
-      schema:
-        type: string
-      example: espoo
