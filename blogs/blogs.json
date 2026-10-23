@@ -16,6 +16,13 @@
       "method": "feed"
     },
     {
+      "source": "https://ridedott.com/blog/feed/",
+      "feed_url": "https://ridedott.com/blog/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
       "source": "https://github.com/ridedott",
       "feed_url": "https://github.com/ridedott",
       "title": "",
@@ -24,5 +31,5 @@
     }
   ],
   "post_count": 10,
-  "fetched": "2026-10-10T13:15:00Z"
+  "fetched": "2026-10-17T14:53:57Z"
 }
