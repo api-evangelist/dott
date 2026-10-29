@@ -64,6 +64,131 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Dott is a company surfaced as a portfolio company of softbank-vision-fund and added to the API Evangelist network as a stub for enrichment. Sector: transportation. This profile is a lead awaiting the enrichment pipeline.
+Dott is a European shared micromobility operator running fleets of electric scooters and e-bikes across 250+ cities in Europe and the Middle East. Formed from the 2024 merger of Dott and TIER (the TIER brand was retired into the Dott app that year), the company is headquartered in Amsterdam, Berlin and Paris. For developers and mobility-data partners, Dott publishes its fleet data through the open GBFS 2.3 standard: real-time vehicle locations, vehicle types, per-city pricing plans, geofencing zones and station data are served from gbfs.api.ridedott.com, with an authenticated partner variant carrying stable (non-rotating) vehicle IDs. Originally added to the API Evangelist network as a SoftBank Vision Fund portfolio lead, enriched from its live public developer surface.
 
-Backed by: softbank-vision-fund
+**Areas:** Company · Transportation · Micromobility · Mobility · E-Scooter · E-Bikes · GBFS · Shared Mobility · Smart City · Sustainability
+
+## Dott on APIs.io
+
+Everything profiled for Dott is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/dott/](https://apis.io/providers/dott/)** — or go straight to one of the APIs or properties below.
+
+### APIs (6)
+
+- [Dott Discovery API](https://apis.io/apis/dott/dott-discovery-api/) — Auto-discovery of available feeds and cities
+- [Dott Stations API](https://apis.io/apis/dott/dott-stations-api/) — Docked station information and status (where applicable)
+- [Dott System API](https://apis.io/apis/dott/dott-system-api/) — System-level metadata and pricing
+- [Dott Vehicles API](https://apis.io/apis/dott/dott-vehicles-api/) — Free-floating vehicle status and types
+- [Dott Zones API](https://apis.io/apis/dott/dott-zones-api/) — Geofencing / operating zones
+- [Dott Partner API](https://apis.io/apis/dott/dott-partner-api/) — Partner-facing data API from Dott (formerly TIER), providing vehicle and availability data (GBFS-style) to authorized partners. Access requires a…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [dott-gbfs](https://apis.io/servers/dott/dott-gbfs/)
+
+#### Examples (5)
+
+Example requests and responses.
+
+- [Dott Gbfs Discovery](https://apis.io/examples/dott/dott-gbfs-discovery/)
+- [Dott Gbfs_Versions](https://apis.io/examples/dott/dott-gbfs_versions/)
+- [Dott System_Information Espoo](https://apis.io/examples/dott/dott-system_information-espoo/)
+- [Dott System_Pricing_Plans Espoo](https://apis.io/examples/dott/dott-system_pricing_plans-espoo/)
+- [Dott Vehicle_Types Espoo](https://apis.io/examples/dott/dott-vehicle_types-espoo/)
+
+#### Collections (5)
+
+Postman and Open Collection request collections.
+
+- [Dott GBFS Discovery API](https://apis.io/collections/dott/open-dott-discovery-api/)
+- [Dott GBFS Discovery Stations API](https://apis.io/collections/dott/open-dott-stations-api/)
+- [Dott GBFS Discovery System API](https://apis.io/collections/dott/open-dott-system-api/)
+- [Dott GBFS Discovery Vehicles API](https://apis.io/collections/dott/open-dott-vehicles-api/)
+- [Dott GBFS Discovery Zones API](https://apis.io/collections/dott/open-dott-zones-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Dott Gbfs Overlay](https://apis.io/overlays/dott/dott-gbfs-overlay/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Dott Authentication](https://apis.io/security/dott/dott-authentication/)
+- [Dott Domain Security](https://apis.io/security/dott/dott-domain-security/)
+- [Moved to /providers/dott/](https://apis.io/security/dott/tier-mobility-authentication/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://ridedott.com)
+- [Documentation](https://ridedott.dev/docs/services/gbfs/introduction/)
+- [Getting started](https://ridedott.dev/docs/services/gbfs/get-started-gbfs/)
+- [API reference](https://gbfs.documentation.ridedott.com/)
+- [Blog](https://ridedott.com/blog/)
+- [Terms of service](https://ridedott.com/terms/)
+- [Privacy policy](https://ridedott.com/privacy/)
+- [GitHub](https://github.com/ridedott)
+
+## API Evangelist rating
+
+**Kin Score 43.3** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 45.1 |
+| Contract governance | 18.2 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 47.0 |
+| Access clarity | 57.1 |
+
+**Agent readiness 23.2** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 24.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/dott/](https://apis.io/providers/dott/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Dott: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/dott/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
